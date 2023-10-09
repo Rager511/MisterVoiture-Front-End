@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-sign-in {
+    background-image: url('./assets/images/SignInCover.jpeg');
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+    border-radius: 20px;
+    height: 50vh;
+}
+
+.bg-sign-up {
+    background-image: url('./assets/images/SignUpCover.jpeg');
+    background-size: cover;
+    background-position: center;
+}
