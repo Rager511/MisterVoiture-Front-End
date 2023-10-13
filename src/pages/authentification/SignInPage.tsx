@@ -1,9 +1,17 @@
 import React from 'react';
+import Logo from '../../assets/images/Logo.png';
+import { Link } from 'react-router-dom';
 
 const SignInPage: React.FC = () => {
     return (
-        <div className="bg-sign-in">
-            <div className="flex justify-center items-center h-screen">
+        <div className="static bg-sign-in">
+            <div className="absolute left-16 top-16">
+                <img className="mx-auto" width={85} src={Logo} />
+                <span className="text-xl font-medium text-white">
+                    MisterVoiture
+                </span>
+            </div>
+            <div className="flex justify-center items-center pt-32">
                 <div className="relative w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-6 md:p-8">
                     <form className="space-y-6" action="#">
                         <div className="flex justify-center">
@@ -64,9 +72,7 @@ const SignInPage: React.FC = () => {
                         </button>
                         <div className="text-sm font-medium text-gray-500">
                             Not registered?{" "}
-                            <a href="#" className="text-blue-700 hover:underline">
-                                Create account
-                            </a>
+                            <Link to="/authentication/signUp" className="text-blue-700 hover:underline">Create account</Link>
                         </div>
                     </form>
                 </div>
