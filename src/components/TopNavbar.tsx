@@ -9,7 +9,7 @@ interface Props {
 
 const TopNavbar: React.FC<Props> = ({title}) => {
   return (
-    <nav className="flex flex-wrap justify-between p-4 rounded-2xl my-5 mr-5 border-gray-200 bg-blue-700">
+    <nav className="flex flex-wrap justify-between fixed p-4 rounded-2xl my-5 border-gray-200 bg-blue-700">
       <button className="rounded-full text-white transition ease-in-out delay-15 hover:ring-4 hover:ring-green-200 focus:ring-4 focus:outline-none focus:ring-green-200" >
         <BiSolidUserCircle size='3em' />
       </button>

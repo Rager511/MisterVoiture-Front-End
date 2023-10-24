@@ -8,8 +8,9 @@ const ServicesPage: React.FC = () => {
             <div className='flex-none'>
                 <NavMenu />
             </div>
-            <div className='flex-auto'>
-                <TopNavbar title="Services" />
+            <div className='flex-auto flex-col'>
+                 <TopNavbar title="Services" />
+                <div className='bg-white-900 h-[70vh] mr-5 rounded-2xl p-5'></div>
             </div>
         </div>
     );
