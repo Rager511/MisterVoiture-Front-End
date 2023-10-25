@@ -8,8 +8,29 @@ interface Props {
 };
 
 const TopNavbar: React.FC<Props> = ({title}) => {
+  const [isAtTop, setIsAtTop] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY === 0) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const elementStyle = isAtTop ? {} : {backdropFilter: "blur(6px)"};
+
   return (
-    <nav className="flex flex-wrap justify-between fixed p-4 rounded-2xl my-5 border-gray-200 bg-blue-700">
+    <nav style={{width: "calc(100vh + 26.5rem)", ...elementStyle}} className="flex flex-wrap justify-between fixed p-4 rounded-2xl my-5 border-gray-200">
       <button className="rounded-full text-white transition ease-in-out delay-15 hover:ring-4 hover:ring-green-200 focus:ring-4 focus:outline-none focus:ring-green-200" >
         <BiSolidUserCircle size='3em' />
       </button>

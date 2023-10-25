@@ -19,3 +19,7 @@
     border-radius: 20px;
     height: 50vh;
 }
+
+.active-link {
+    background: linear-gradient(195deg, #49a3f1, #1A73E8);
+}

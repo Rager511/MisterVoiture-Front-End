@@ -8,7 +8,7 @@ import { AiOutlineCarryOut } from 'react-icons/ai';
 
 const DashboardPage: React.FC = () => {
   return (
-    <div className='flex bg-gray-250'>
+    <div className='flex bg-gray-200'>
       <NavMenu />
       <div className='ml-auto'>
         <TopNavbar title="Dashboard" />
