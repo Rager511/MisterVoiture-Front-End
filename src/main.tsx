@@ -1,13 +1,14 @@
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GaragesPage from './pages/management/GaragesPage';
-import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './pages/management/DashboardPage';
 import ServicesPage from './pages/management/ServicesPage';
 import TechniciansPage from './pages/management/TechniciansPage';
 import SignInPage from './pages/authentification/SignInPage';
 import SignUpPage from './pages/authentification/SignUpPage';
-import NotificationPage from './pages/NotificationPage';
+import NotificationPage from './pages/management/NotificationPage';
 import RequestsPage from './pages/management/RequestsPage';
+import ProfilePage from './pages/ProfilePage';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Route path="/" element={<SignInPage />} />
       <Route path="/authentication/signIn" element={<SignInPage />} />
       <Route path="/authentication/signUp" element={<SignUpPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/notifications" element={<NotificationPage />} />
       <Route path="/requests" element={<RequestsPage />} />

@@ -1,16 +1,23 @@
 import React from 'react';
-import TopNavbar from '../../components/TopNavbar';
-import NavMenu from '../../components/Navmenu';
+import SideBar from '../../components/SideBar';
+import TopBar from '../../components/TopBar';
 
 const ServicesPage: React.FC = () => {
     return (
-        <div className='flex'>
-            <div className='flex-none'>
-                <NavMenu />
-            </div>
-            <div className='flex-auto flex-col'>
-                 <TopNavbar title="Services" />
-                <div className='bg-white-900 h-[70vh] mr-5 rounded-2xl p-5'></div>
+        <div className='flex p-5'>
+            <SideBar />
+            <div style={{ width: "calc(100vw - 23.5rem)" }} className='ml-auto'>
+                <TopBar title="Services" />
+                <div className='mt-[6.3rem] grid grid-cols-1 gap-5'>
+                </div>
+                <div className='flex justify-between mt-5'>
+                    <span>© 2023, made by Imad Maailil for a better world.</span>
+                    <div className='flex space-x-5'>
+                        <span>About Us</span>
+                        <span>Terms & Conditions</span>
+                        <span>Privacy Policy</span>
+                    </div>
+                </div>
             </div>
         </div>
     );

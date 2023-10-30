@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: rgb(229 231 235);
+}
+
 .bg-sign-in {
     background-image: url('./assets/images/SignInCover.jpeg');
     background-size: cover;

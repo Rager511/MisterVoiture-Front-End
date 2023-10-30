@@ -5,6 +5,7 @@ export enum routes {
     technicians = '/technicians',
     dashboard = '/dashboard',
     notifications = '/notifications',
-    signIn = 'authentication/sign-in',
-    signUp = 'authentication/sign-up'
+    signIn = '/authentication/signIn',
+    signUp = '/authentication/signUp',
+    profile = '/profile'
 }
