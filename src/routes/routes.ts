@@ -1,4 +1,5 @@
-export enum routes {
+enum Routes {
+    root = '/',
     garages = '/garages',
     requests = '/requests',
     services = '/services',
@@ -9,3 +10,5 @@ export enum routes {
     signUp = '/authentication/signUp',
     profile = '/profile'
 }
+
+export default Routes;

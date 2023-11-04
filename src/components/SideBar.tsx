@@ -3,7 +3,7 @@ import { MdSpaceDashboard, MdCarRepair, MdHomeRepairService, MdEngineering } fro
 import { BsGearWide } from 'react-icons/bs';
 import Logo from '../assets/images/Logo.png';
 import React from 'react';
-import { routes } from '../routes/routes';
+import Routes from '../routes/routes';
 
 const SideBar: React.FC = () => {
   const location = useLocation();
@@ -26,8 +26,8 @@ const SideBar: React.FC = () => {
       <div className='grid grid-cols-1 h-4/5 content-between'>
         <ul className='flex flex-col space-y-1'>
           <li>
-            <Link to={routes.dashboard}>
-              <div style={isActive(routes.dashboard)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(routes.dashboard)}`}>
+            <Link to={Routes.dashboard}>
+              <div style={isActive(Routes.dashboard)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.dashboard)}`}>
                 <span className="ml-3 text-white">
                   <MdSpaceDashboard size="1.8em" />
                 </span>
@@ -38,8 +38,8 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={routes.garages}>
-              <div style={isActive(routes.garages)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(routes.garages)}`}>
+            <Link to={Routes.garages}>
+              <div style={isActive(Routes.garages)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.garages)}`}>
                 <span className="ml-3 text-white">
                   <MdCarRepair size="1.8em" />
                 </span>
@@ -50,8 +50,8 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={routes.services}>
-              <div style={isActive(routes.services)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(routes.services)}`}>
+            <Link to={Routes.services}>
+              <div style={isActive(Routes.services)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.services)}`}>
                 <span className="ml-3 text-white">
                   <MdHomeRepairService size="1.8em" />
                 </span>
@@ -62,8 +62,8 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={routes.technicians}>
-              <div style={isActive(routes.technicians)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(routes.technicians)}`}>
+            <Link to={Routes.technicians}>
+              <div style={isActive(Routes.technicians)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.technicians)}`}>
                 <span className="ml-3 text-white">
                   <MdEngineering size="1.8em" />
                 </span>
@@ -74,8 +74,8 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={routes.requests}>
-              <div style={isActive(routes.requests)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(routes.requests)}`}>
+            <Link to={Routes.requests}>
+              <div style={isActive(Routes.requests)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.requests)}`}>
                 <span className="ml-3 text-white">
                   <BsGearWide size="1.8em" />
                 </span>

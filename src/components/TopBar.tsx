@@ -3,7 +3,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { IoIosNotifications } from 'react-icons/io';
 import { HiLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { routes } from '../routes/routes';
+import Routes from '../routes/routes';
 
 interface Props {
   title: string;
@@ -37,13 +37,13 @@ const TopBar: React.FC<Props> = ({ title }) => {
         {title}
       </div>
       <div className='flex space-x-3'>
-        <Link to={routes.notifications}>
+        <Link to={Routes.notifications}>
           <IoIosNotifications size={27} color={"dimgray"} />
         </Link>
-        <Link to={routes.profile}>
+        <Link to={Routes.profile}>
           <BsFillPersonFill size={27} color={"dimgray"} />
         </Link>
-        <Link to={routes.signIn}>
+        <Link to={Routes.signIn}>
           <HiLogout size={27} color={"dimgray"} />
         </Link>
       </div>

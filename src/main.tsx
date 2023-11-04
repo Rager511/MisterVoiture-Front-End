@@ -9,20 +9,21 @@ import SignUpPage from './pages/authentification/SignUpPage';
 import NotificationPage from './pages/management/NotificationPage';
 import RequestsPage from './pages/management/RequestsPage';
 import ProfilePage from './pages/ProfilePage';
+import AppRoutes from './routes/routes';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<SignInPage />} />
-      <Route path="/authentication/signIn" element={<SignInPage />} />
-      <Route path="/authentication/signUp" element={<SignUpPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/notifications" element={<NotificationPage />} />
-      <Route path="/requests" element={<RequestsPage />} />
-      <Route path="/garages" element={<GaragesPage />} />
-      <Route path="/services" element={<ServicesPage />} />
-      <Route path="/technicians" element={<TechniciansPage />} />
+      <Route path={AppRoutes.root} element={<SignInPage />} />
+      <Route path={AppRoutes.signIn} element={<SignInPage />} />
+      <Route path={AppRoutes.signUp} element={<SignUpPage />} />
+      <Route path={AppRoutes.profile} element={<ProfilePage />} />
+      <Route path={AppRoutes.dashboard} element={<DashboardPage />} />
+      <Route path={AppRoutes.notifications} element={<NotificationPage />} />
+      <Route path={AppRoutes.requests} element={<RequestsPage />} />
+      <Route path={AppRoutes.garages} element={<GaragesPage />} />
+      <Route path={AppRoutes.services} element={<ServicesPage />} />
+      <Route path={AppRoutes.technicians} element={<TechniciansPage />} />
     </Routes>
   </BrowserRouter>
 );
