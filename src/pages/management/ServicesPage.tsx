@@ -5,40 +5,40 @@ import { BiSolidCarMechanic, BiSolidCarWash } from 'react-icons/bi';
 import { GiCarWheel } from 'react-icons/gi';
 import { GrLinkNext } from 'react-icons/gr';
 import { FaOilCan } from 'react-icons/fa';
-import { Cost, Ratings, Services } from '../../utils';
+import { Services } from '../../utils';
 import { Link } from 'react-router-dom';
 import Routes from '../../routes/routes';
 
-const mockTopRatedMechanics = [
+const mockBestGarages = [
     {
-        name: 'Ali',
-        available: true,
-        rating: Ratings.Excellent,
-        cost: Cost.Medium
+        name: 'Garage Allal',
+        city: 'Casablanca',
+        address: 'Boulevard Abdelmoumen, 3234',
+        category: 'Car Wash, Car Repair'
     },
     {
-        name: 'Said',
-        available: false,
-        rating: Ratings.Excellent,
-        cost: Cost.High
+        name: 'Bakiz',
+        city: 'Khemisset',
+        address: 'Avenue Simolayf, 1221',
+        category: 'Car Wash'
     },
     {
-        name: 'Youssef',
-        available: true,
-        rating: Ratings.Good,
-        cost: Cost.Medium
+        name: 'Auto Magrizi',
+        city: 'Taddart',
+        address: 'Rue Sardines, 1234',
+        category: 'Car Repair'
     },
     {
-        name: 'Anas',
-        available: false,
-        rating: Ratings.Good,
-        cost: Cost.Medium
+        name: 'Tibba Motors',
+        city: 'Tokyo',
+        address: 'Shibuya, 23144',
+        category: 'Spare Parts, Car Repair'
     },
     {
-        name: 'Hamza',
-        available: true,
-        rating: Ratings.Good,
-        cost: Cost.High
+        name: 'Sinko',
+        city: 'Marrakech',
+        address: 'Avenue Doha 2, 9433',
+        category: 'Wrapping, Car Repair'
     }
 ];
 
@@ -62,8 +62,8 @@ const ServicesPage: React.FC = () => (
                     </div>
                     <div className='flex flex-row justify-between w-full'>
                         <span className='text-gray-700 text-xl font-bold mt-3'>Best Garages</span>
-                        <Link to={Routes.garages} className='flex'>
-                            <span>View all garages</span>
+                        <Link to={Routes.garages} className='flex items-center'>
+                            <span className='mr-3'>View all garages</span>
                             <GrLinkNext />
                         </Link>
                     </div>
@@ -71,28 +71,28 @@ const ServicesPage: React.FC = () => (
                         <thead className="text-xs text-gray-400">
                             <tr className='border-b'>
                                 <th scope="col" className="px-6 py-3">
-                                    Mechanic
+                                    Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Available
+                                    City
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Rating
+                                    Address
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Budget
+                                    Category
                                 </th>
                             </tr>
                         </thead>
                         <tbody className='text-gray-900'>
-                            {mockTopRatedMechanics.map((row, index) => (
-                                <tr className={`${index !== mockTopRatedMechanics.length - 1 && "border-b"}`} key={index}>
+                            {mockBestGarages.map((row, index) => (
+                                <tr className={`${index !== mockBestGarages.length - 1 && "border-b"}`} key={index}>
                                     <th scope="row" className="px-6 py-4">
                                         {row.name}
                                     </th>
-                                    <td className={`px-6 py-4 ${row.available ? "text-green-500" : "text-red-500"}`}>{row.available ? "Yes" : "No"}</td>
-                                    <td className="px-6 py-4">{row.rating}</td>
-                                    <td className="px-6 py-4">{row.cost}</td>
+                                    <td className="px-6 py-4">{row.city}</td>
+                                    <td className="px-6 py-4">{row.address}</td>
+                                    <td className="px-6 py-4">{row.category}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -112,8 +112,8 @@ const ServicesPage: React.FC = () => (
                     </div>
                     <div className='flex flex-row justify-between w-full'>
                         <span className='text-gray-700 text-xl font-bold mt-3'>Best Garages</span>
-                        <Link to={Routes.garages} className='flex'>
-                            <span>View all garages</span>
+                        <Link to={Routes.garages} className='flex items-center'>
+                            <span className='mr-3'>View all garages</span>
                             <GrLinkNext />
                         </Link>
                     </div>
@@ -121,28 +121,28 @@ const ServicesPage: React.FC = () => (
                         <thead className="text-xs text-gray-400">
                             <tr className='border-b'>
                                 <th scope="col" className="px-6 py-3">
-                                    Mechanic
+                                    Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Available
+                                    City
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Rating
+                                    Address
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Budget
+                                    Category
                                 </th>
                             </tr>
                         </thead>
                         <tbody className='text-gray-900'>
-                            {mockTopRatedMechanics.map((row, index) => (
-                                <tr className={`${index !== mockTopRatedMechanics.length - 1 && "border-b"}`} key={index}>
+                            {mockBestGarages.map((row, index) => (
+                                <tr className={`${index !== mockBestGarages.length - 1 && "border-b"}`} key={index}>
                                     <th scope="row" className="px-6 py-4">
                                         {row.name}
                                     </th>
-                                    <td className={`px-6 py-4 ${row.available ? "text-green-500" : "text-red-500"}`}>{row.available ? "Yes" : "No"}</td>
-                                    <td className="px-6 py-4">{row.rating}</td>
-                                    <td className="px-6 py-4">{row.cost}</td>
+                                    <td className="px-6 py-4">{row.city}</td>
+                                    <td className="px-6 py-4">{row.address}</td>
+                                    <td className="px-6 py-4">{row.category}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -162,8 +162,8 @@ const ServicesPage: React.FC = () => (
                     </div>
                     <div className='flex flex-row justify-between w-full'>
                         <span className='text-gray-700 text-xl font-bold mt-3'>Best Garages</span>
-                        <Link to={Routes.garages} className='flex'>
-                            <span>View all garages</span>
+                        <Link to={Routes.garages} className='flex items-center'>
+                            <span className='mr-3'>View all garages</span>
                             <GrLinkNext />
                         </Link>
                     </div>
@@ -171,28 +171,28 @@ const ServicesPage: React.FC = () => (
                         <thead className="text-xs text-gray-400">
                             <tr className='border-b'>
                                 <th scope="col" className="px-6 py-3">
-                                    Mechanic
+                                    Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Available
+                                    City
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Rating
+                                    Address
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Budget
+                                    Category
                                 </th>
                             </tr>
                         </thead>
                         <tbody className='text-gray-900'>
-                            {mockTopRatedMechanics.map((row, index) => (
-                                <tr className={`${index !== mockTopRatedMechanics.length - 1 && "border-b"}`} key={index}>
+                            {mockBestGarages.map((row, index) => (
+                                <tr className={`${index !== mockBestGarages.length - 1 && "border-b"}`} key={index}>
                                     <th scope="row" className="px-6 py-4">
                                         {row.name}
                                     </th>
-                                    <td className={`px-6 py-4 ${row.available ? "text-green-500" : "text-red-500"}`}>{row.available ? "Yes" : "No"}</td>
-                                    <td className="px-6 py-4">{row.rating}</td>
-                                    <td className="px-6 py-4">{row.cost}</td>
+                                    <td className="px-6 py-4">{row.city}</td>
+                                    <td className="px-6 py-4">{row.address}</td>
+                                    <td className="px-6 py-4">{row.category}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -212,8 +212,8 @@ const ServicesPage: React.FC = () => (
                     </div>
                     <div className='flex flex-row justify-between w-full'>
                         <span className='text-gray-700 text-xl font-bold mt-3'>Best Garages</span>
-                        <Link to={Routes.garages} className='flex'>
-                            <span>View all garages</span>
+                        <Link to={Routes.garages} className='flex items-center'>
+                            <span className='mr-3'>View all garages</span>
                             <GrLinkNext />
                         </Link>
                     </div>
@@ -221,28 +221,28 @@ const ServicesPage: React.FC = () => (
                         <thead className="text-xs text-gray-400">
                             <tr className='border-b'>
                                 <th scope="col" className="px-6 py-3">
-                                    Mechanic
+                                    Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Available
+                                    City
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Rating
+                                    Address
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Budget
+                                    Category
                                 </th>
                             </tr>
                         </thead>
                         <tbody className='text-gray-900'>
-                            {mockTopRatedMechanics.map((row, index) => (
-                                <tr className={`${index !== mockTopRatedMechanics.length - 1 && "border-b"}`} key={index}>
+                            {mockBestGarages.map((row, index) => (
+                                <tr className={`${index !== mockBestGarages.length - 1 && "border-b"}`} key={index}>
                                     <th scope="row" className="px-6 py-4">
                                         {row.name}
                                     </th>
-                                    <td className={`px-6 py-4 ${row.available ? "text-green-500" : "text-red-500"}`}>{row.available ? "Yes" : "No"}</td>
-                                    <td className="px-6 py-4">{row.rating}</td>
-                                    <td className="px-6 py-4">{row.cost}</td>
+                                    <td className="px-6 py-4">{row.city}</td>
+                                    <td className="px-6 py-4">{row.address}</td>
+                                    <td className="px-6 py-4">{row.category}</td>
                                 </tr>
                             ))}
                         </tbody>

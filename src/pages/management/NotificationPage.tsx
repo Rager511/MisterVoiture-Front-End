@@ -3,6 +3,7 @@ import SideBar from '../../components/SideBar';
 import TopBar from '../../components/TopBar';
 import SearchBar from '../../components/SearchBar';
 import Pagination from '../../components/Pagination';
+import { BsFillArchiveFill } from 'react-icons/bs';
 
 const NotificationPage: React.FC = () => {
   const [searchValue, setSearchValue] = React.useState<string>("");
@@ -105,6 +106,9 @@ const NotificationPage: React.FC = () => {
                     <th scope="col" className="px-6 py-3">
                       User
                     </th>
+                    <th scope="col" className="px-6 py-3">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody className='text-gray-900'>
@@ -116,6 +120,11 @@ const NotificationPage: React.FC = () => {
                       <td className={`px-6 py-4 text-${row.status === "Accepted" ? "green" : (row.status === "Rejected" || row.status === "Cancelled") && "red"}-500`}>{row.status}</td>
                       <td className="px-6 py-4">{row.time}</td>
                       <td className="px-6 py-4 font-bold">{row.user}</td>
+                      <td className="px-6 py-4 font-bold">
+                        <button>
+                          <BsFillArchiveFill color="goldenrod" />
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
