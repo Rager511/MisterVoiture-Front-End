@@ -1,13 +1,14 @@
 import React from 'react';
-import SideBar from '../../components/SideBar';
-import TopBar from '../../components/TopBar';
-import { Ratings, Cost, Services } from '../../utils';
+import SideBar from '../../components/navigation/SideBar';
+import TopBar from '../../components/navigation/TopBar';
+import { Services } from '../../utils';
 import { BiSolidCarWash, BiSolidCarMechanic, BiSolidCarGarage } from 'react-icons/bi';
 import { GiCarWheel } from 'react-icons/gi';
 import { FaOilCan } from 'react-icons/fa';
-import StatisticCard from '../../components/StatisticCard';
+import StatisticCard from '../../components/cards/StatisticCard';
 import { BarChart } from '../../components/charts/BarChart';
 import { LineChart } from '../../components/charts/LineChart';
+import Footer from '../../components/Footer';
 
 const mockRecentRequests = [
   {
@@ -37,42 +38,42 @@ const mockRecentRequests = [
   }
 ];
 
-const mockTopRatedMechanics = [
+const mockGarages = [
   {
-    name: 'Mohamed',
-    available: true,
-    rating: Ratings.Excellent,
-    cost: Cost.High
+    name: 'Garage Allal',
+    city: 'Casablanca',
+    address: 'Boulevard Abdelmoumen, 3234',
+    category: 'Washing, Wheel Repair'
   },
   {
-    name: 'Ali',
-    available: true,
-    rating: Ratings.Excellent,
-    cost: Cost.Medium
+    name: 'Bakiz',
+    city: 'Khemisset',
+    address: 'Avenue Simolayf, 1221',
+    category: 'Washing'
   },
   {
-    name: 'Said',
-    available: false,
-    rating: Ratings.Excellent,
-    cost: Cost.High
+    name: 'Auto Magrizi',
+    city: 'Taddart',
+    address: 'Rue Sardines, 1234',
+    category: 'Oil Change, Technical Visit'
   },
   {
-    name: 'Youssef',
-    available: true,
-    rating: Ratings.Good,
-    cost: Cost.Medium
+    name: 'Tibba Motors',
+    city: 'Tokyo',
+    address: 'Shibuya, 23144',
+    category: 'Technical Visit, Wheel Repair'
   },
   {
-    name: 'Anas',
-    available: false,
-    rating: Ratings.Good,
-    cost: Cost.Medium
+    name: 'Sinko',
+    city: 'Marrakech',
+    address: 'Avenue Doha 2, 9433',
+    category: 'All'
   },
   {
-    name: 'Hamza',
-    available: true,
-    rating: Ratings.Good,
-    cost: Cost.High
+    name: 'Sinko',
+    city: 'Marrakech',
+    address: 'Avenue Doha 2, 9433',
+    category: 'All'
   }
 ];
 
@@ -112,34 +113,34 @@ const DashboardPage: React.FC = () => {
           <div className='flex flex-row space-x-5 w-full'>
             <div className='bg-white p-5 rounded-2xl flex flex-col shadow-lg w-full'>
               <span className='text-gray-700 text-xl font-bold'>
-                Top Rated Mechanics
+                Top Rated Garages
               </span>
               <table className="w-full text-sm text-left mt-3">
                 <thead className="text-xs text-gray-400">
                   <tr className='border-b'>
                     <th scope="col" className="px-6 py-3">
-                      Mechanic
+                      Name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Available
+                      City
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Rating
+                      Address
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Budget
+                      Services
                     </th>
                   </tr>
                 </thead>
                 <tbody className='text-gray-900'>
-                  {mockTopRatedMechanics.map((row, index) => (
-                    <tr className={`${index !== mockTopRatedMechanics.length - 1 && "border-b"}`} key={index}>
+                  {mockGarages.map((row, index) => (
+                    <tr className={`${index !== mockGarages.length - 1 && "border-b"}`} key={index}>
                       <th scope="row" className="px-6 py-4">
                         {row.name}
                       </th>
-                      <td className={`px-6 py-4 ${row.available ? "text-green-500" : "text-red-500"}`}>{row.available ? "Yes" : "No"}</td>
-                      <td className="px-6 py-4">{row.rating}</td>
-                      <td className="px-6 py-4">{row.cost}</td>
+                      <td className="px-6 py-4">{row.city}</td>
+                      <td className="px-6 py-4">{row.address}</td>
+                      <td className="px-6 py-4">{row.category}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -152,7 +153,7 @@ const DashboardPage: React.FC = () => {
                 </span>
                 <ol className="relative text-gray-500 border-l mt-3 border-gray-200 ml-5">
                   {mockRecentRequests.map((row, index) => (
-                    <li className={`ml-6 ${index !== mockTopRatedMechanics.length - 1 && "mb-10"}`} key={index}>
+                    <li className={`ml-6 ${index !== mockRecentRequests.length - 1 && "mb-10"}`} key={index}>
                       <span className="absolute flex items-center justify-center w-8 h-8 bg-[#66BB6A] text-white rounded-full -left-4">
                         <BiSolidCarGarage />
                       </span>
@@ -165,14 +166,7 @@ const DashboardPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='flex justify-between mt-5'>
-          <span>© 2023, made by Imad Maailil for a better world.</span>
-          <div className='flex space-x-5'>
-            <span>About Us</span>
-            <span>Terms & Conditions</span>
-            <span>Privacy Policy</span>
-          </div>
-        </div>
+        <Footer />
       </div>
     </div>
   );

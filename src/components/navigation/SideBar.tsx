@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { MdSpaceDashboard, MdCarRepair, MdHomeRepairService, MdEngineering } from 'react-icons/md';
-import { BsGearWide } from 'react-icons/bs';
-import Logo from '../assets/images/Logo.png';
+import { MdSpaceDashboard, MdCarRepair, MdHomeRepairService } from 'react-icons/md';
+import { BsGearWide, BsPersonWorkspace } from 'react-icons/bs';
+import Logo from '../../assets/images/Logo.png';
 import React from 'react';
-import Routes from '../routes/routes';
+import Routes from '../../routes/routes';
+import { BiSolidUserCircle } from 'react-icons/bi';
 
 const SideBar: React.FC = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const SideBar: React.FC = () => {
   };
 
   return (
-    <aside style={{ height: "calc(100vh - 2.5rem)", background: "linear-gradient(195deg, #42424a, #191919)" }} className='fixed flex-1 rounded-2xl   p-5 w-[40vh]'>
+    <aside style={{ height: "calc(100vh - 2.5rem)", background: "linear-gradient(195deg, #42424a, #191919)" }} className='fixed flex-1 rounded-2xl z-30 p-5 w-[40vh]'>
       <img className="mx-auto" width={85} src={Logo} alt="Logo" />
       <span className="text-xl flex justify-center font-medium text-white">
         MisterVoiture
@@ -38,18 +39,6 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={Routes.garages}>
-              <div style={isActive(Routes.garages)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.garages)}`}>
-                <span className="ml-3 text-white">
-                  <MdCarRepair size="1.8em" />
-                </span>
-                <span className="ml-3 text-white text-sm font-medium">
-                  Garages
-                </span>
-              </div>
-            </Link>
-          </li>
-          <li>
             <Link to={Routes.services}>
               <div style={isActive(Routes.services)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.services)}`}>
                 <span className="ml-3 text-white">
@@ -62,13 +51,13 @@ const SideBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to={Routes.technicians}>
-              <div style={isActive(Routes.technicians)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.technicians)}`}>
+            <Link to={Routes.garages}>
+              <div style={isActive(Routes.garages)} className={`flex items-center h-12 w-full rounded-xl ${isInactive(Routes.garages)}`}>
                 <span className="ml-3 text-white">
-                  <MdEngineering size="1.8em" />
+                  <MdCarRepair size="1.8em" />
                 </span>
                 <span className="ml-3 text-white text-sm font-medium">
-                  Technicians
+                  Garages
                 </span>
               </div>
             </Link>
@@ -84,6 +73,30 @@ const SideBar: React.FC = () => {
                 </span>
               </div>
             </Link>
+          </li>
+          <li>
+            <div>
+              <div className="stripe-1 flex items-center h-12 w-full rounded-xl">
+                <span className="ml-3 text-white">
+                  <BiSolidUserCircle size="1.8em" />
+                </span>
+                <span className="ml-3 text-white text-sm font-medium">
+                  Clients
+                </span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div className="stripe-1 flex items-center h-12 w-full rounded-xl">
+                <span className="ml-3 text-white">
+                  <BsPersonWorkspace size="1.8em" />
+                </span>
+                <span className="ml-3 text-white text-sm font-medium">
+                  Admins
+                </span>
+              </div>
+            </div>
           </li>
         </ul>
         <span className='text-white flex justify-center'>Proof of Concept</span>

@@ -1,9 +1,4 @@
-export enum Ratings {
-    Bad = 'Bad',
-    Average = 'Average',
-    Good = 'Good',
-    Excellent = 'Excellent'
-}
+import { LatLng } from "leaflet";
 
 export enum Cost {
     Low = '$',
@@ -17,3 +12,5 @@ export enum Services {
     OilChange = 'Oil Change',
     TechnicalVisit = 'Technical Visit'
 }
+
+export const defaultCenter = new LatLng(31.63358, -8.00604);

@@ -28,6 +28,14 @@ body {
     background: linear-gradient(195deg, #49a3f1, #1A73E8);
 }
 
-.map {
-    height: 400px;
+.stripe-1 {
+    color: white;
+    background: repeating-linear-gradient(
+      45deg,
+      #171400,
+      #171400 10px,
+      #ffdd00 10px,
+      #ffdd00 20px
+    );
+    opacity: 40%;
 }
