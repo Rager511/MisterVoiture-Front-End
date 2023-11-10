@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
-import GarageFilters from "./GarageFilters";
+import RequestsFilters from "./RequestsFilters";
 
 interface Props {
     onSearch: (value: string) => void;
@@ -26,7 +26,7 @@ const RequestSearchBar: React.FC<Props> = ({ onSearch }) => {
     return (
         <div className="flex">
             {showRequestFiltersModal && (
-                <GarageFilters closeModal={closeRequestFiltersModal} />
+                <RequestsFilters closeModal={closeRequestFiltersModal} />
             )}
             <button onClick={openRequestFiltersModal} className="z-20 p-3 rounded-l-2xl w-1/12 transition ease-in-out delay-50 space-x-1 space-y-1 flex justify-center text-sm font-medium text-gray-900 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-500" type="button">
                 <span>Filters</span>

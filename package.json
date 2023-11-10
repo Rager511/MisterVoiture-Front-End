@@ -25,6 +25,7 @@
     "react-leaflet": "^4.2.1",
     "react-leaflet-cluster": "^2.1.0",
     "react-resizable": "^3.0.5",
+    "tailwind-datepicker-react": "^1.4.3",
     "yup": "^1.1.1"
   },
   "devDependencies": {
