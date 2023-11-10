@@ -12,10 +12,10 @@ interface GarageFilter {
 }
 
 enum SortBy {
-    Name,
-    City,
-    Address,
-    FulfilledRequests
+    Name = "name",
+    City = "city",
+    Address = "address",
+    FulfilledRequests = "fulfilledRequests"
 }
 
 // This is technically a modal but whatever
@@ -23,8 +23,12 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
     const [garageFilter, setGarageFilter] = React.useState<GarageFilter>({
         sortBy: SortBy.FulfilledRequests,
         services: [Services.Washing, Services.WheelRepair, Services.OilChange, Services.TechnicalVisit],
-        descending: false
+        descending: true
     });
+
+    React.useEffect(() => {
+        console.log(garageFilter);
+    }, [garageFilter]);
 
     return (
         <div
@@ -45,7 +49,7 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                             <h3 className="mb-4 font-semibold text-gray-900">
                                 Sort by
                             </h3>
-                            <ul className="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg">
+                            <ul className="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg">
                                 <li className="w-full border-b border-gray-200 rounded-t-lg">
                                     <div className="flex items-center pl-3">
                                         <input
@@ -53,6 +57,7 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                             type="radio"
                                             defaultValue=""
                                             name="list-radio"
+                                            onClick={() => setGarageFilter({ ...garageFilter, sortBy: SortBy.Name })}
                                             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
                                         />
                                         <label
@@ -70,6 +75,7 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                             type="radio"
                                             defaultValue=""
                                             name="list-radio"
+                                            onClick={() => setGarageFilter({ ...garageFilter, sortBy: SortBy.City })}
                                             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
                                         />
                                         <label
@@ -87,6 +93,7 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                             type="radio"
                                             defaultValue=""
                                             name="list-radio"
+                                            onClick={() => setGarageFilter({ ...garageFilter, sortBy: SortBy.Address })}
                                             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
                                         />
                                         <label
@@ -104,6 +111,7 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                             type="radio"
                                             defaultValue=""
                                             name="list-radio"
+                                            onClick={() => setGarageFilter({ ...garageFilter, sortBy: SortBy.FulfilledRequests })}
                                             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
                                         />
                                         <label
@@ -115,17 +123,21 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                     </div>
                                 </li>
                             </ul>
-                            <div>
+                            <div className='inline-flex space-x-3 mt-3'>
+                                <span className="ml-3 text-sm font-medium text-gray-900">
+                                    Descending
+                                </span>
                                 <label className="relative inline-flex items-center cursor-pointer">
-                                    <span className="ml-3 text-sm font-medium text-gray-900">
-                                        Descending
-                                    </span>
-                                    <input type="checkbox" defaultValue="" className="sr-only peer" />
+                                    <input
+                                        type="checkbox"
+                                        defaultValue=""
+                                        onClick={() => setGarageFilter({ ...garageFilter, descending: !garageFilter.descending })}
+                                        className="sr-only peer" />
                                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600" />
-                                    <span className="ml-3 text-sm font-medium text-gray-900">
-                                        Ascending
-                                    </span>
                                 </label>
+                                <span className="text-sm font-medium text-gray-900">
+                                    Ascending
+                                </span>
                             </div>
                         </div>
                         <div>
@@ -138,7 +150,9 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                         id="bordered-checkbox-1"
                                         type="checkbox"
                                         defaultValue=""
+                                        defaultChecked 
                                         name={Services.Washing}
+                                        onClick={() => setGarageFilter({ ...garageFilter, services: garageFilter.services.includes(Services.Washing) ? garageFilter.services.filter(service => service !== Services.Washing) : [...garageFilter.services, Services.Washing] })}
                                         className="text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                                     />
                                     <label
@@ -153,7 +167,9 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                         id="bordered-checkbox-2"
                                         type="checkbox"
                                         defaultValue=""
+                                        defaultChecked 
                                         name={Services.WheelRepair}
+                                        onClick={() => setGarageFilter({ ...garageFilter, services: garageFilter.services.includes(Services.WheelRepair) ? garageFilter.services.filter(service => service !== Services.WheelRepair) : [...garageFilter.services, Services.WheelRepair] })}
                                         className="text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                                     />
                                     <label
@@ -168,7 +184,9 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                         id="bordered-checkbox-3"
                                         type="checkbox"
                                         defaultValue=""
+                                        defaultChecked 
                                         name={Services.OilChange}
+                                        onClick={() => setGarageFilter({ ...garageFilter, services: garageFilter.services.includes(Services.OilChange) ? garageFilter.services.filter(service => service !== Services.OilChange) : [...garageFilter.services, Services.OilChange] })}
                                         className="text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                                     />
                                     <label
@@ -183,7 +201,9 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                                         id="bordered-checkbox-4"
                                         type="checkbox"
                                         defaultValue=""
+                                        defaultChecked 
                                         name={Services.TechnicalVisit}
+                                        onChange={() => setGarageFilter({ ...garageFilter, services: garageFilter.services.includes(Services.TechnicalVisit) ? garageFilter.services.filter(service => service !== Services.TechnicalVisit) : [...garageFilter.services, Services.TechnicalVisit] })}
                                         className="text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                                     />
                                     <label
@@ -198,6 +218,13 @@ const GarageFilters: React.FC<Props> = ({ closeModal }) => {
                     </div>
                     {/*footer*/}
                     <div className="flex items-center justify-end p-3 border-t border-solid border-blueGray-200 rounded-b">
+                        <button
+                            className="text-green-500 bg-green-200 rounded-2xl font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button"
+                            onClick={closeModal}
+                        >
+                            Set Filter
+                        </button>
                         <button
                             className="text-red-500 bg-red-200 rounded-2xl font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                             type="button"
